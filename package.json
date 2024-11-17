@@ -6,8 +6,17 @@
 	"description": "Optimize SVGs locally.",
 	"main": "index.js",
 	"scripts": {
-		"optimize-svg": "node optimize-svgs.js",
-		"watch-svgs": "npm run optimize-svg && nodemon --watch input --ext svg --exec npm run optimize-svg"
+		"clean:default": "cross-env PRESET=clean/default npm run svgo:watch",
+		"clean:leave-unknowns": "cross-env PRESET=clean/leave-unknowns npm run svgo:watch",
+		"optimize:default": "cross-env PRESET=optimize/default npm run svgo:watch",
+		"optimize:leave-unknowns": "cross-env PRESET=optimize/leave-unknowns npm run svgo:watch",
+		"dev": "npm-run-all --parallel dev:monitor dev:server",
+		"dev:monitor": "node monitor.js",
+		"dev:server": "npm run dev --prefix server-preview",
+		"remove:output": "rimraf output",
+		"svgo:optimize": "node optimize.js",
+		"svgo:watch": "npm run svgo:optimize && nodemon --watch input --ext svg --exec npm run svgo:optimize",
+		"format": "npx stylelint \"**/*.{css,html}\" --fix && npx prettier --write ."
 	},
 	"repository": {
 		"type": "git",
@@ -18,7 +27,9 @@
 		"optimize",
 		"minify",
 		"compress",
-		"local"
+		"local",
+		"vector",
+		"SVGO"
 	],
 	"author": "Kristoffer Ekstrand",
 	"license": "MIT",
@@ -26,8 +37,16 @@
 		"url": "https://github.com/KristofferKarlAxelEkstrand/svg-optimizer/issues"
 	},
 	"homepage": "https://github.com/KristofferKarlAxelEkstrand/svg-optimizer#readme",
-	"dependencies": {
-		"nodemon": "^3.1.7",
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"nodemon": "^3.1.10",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^3.5.3",
+		"rimraf": "^6.0.1",
+		"stylelint": "^16.20.0",
+		"stylelint-config-html": "^1.1.0",
+		"stylelint-config-standard": "^38.0.0",
+		"stylelint-order": "^7.0.0",
 		"svgo": "^3.3.2"
 	}
 }

@@ -1,4 +1,3 @@
-// svgo.config.js
 export default {
 	multipass: true,
 	plugins: [
@@ -8,7 +7,7 @@ export default {
 				overrides: {
 					removeViewBox: false,
 					removeMetadata: true,
-					removeUnknownsAndDefaults: false, // Disable removeUnknownsAndDefaults plugin
+					removeUnknownsAndDefaults: false,
 				},
 			},
 		},

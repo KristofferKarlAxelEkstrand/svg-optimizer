@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>SVG Optimizer</title>
+		<style>
+			*,
+			*::after,
+			*::before {
+				box-sizing: border-box;
+			}
+			body {
+				background-color: #f0f0f0;
+				color: #333;
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+			svg-menu {
+				background-color: rgb(226, 226, 226);
+				border-radius: 0;
+				height: 100%;
+				left: 0;
+				margin: 0;
+				opacity: 0;
+				overflow: auto;
+				padding: 0.5rem;
+				position: fixed;
+				top: 0;
+				transition: opacity 0.3s ease;
+				width: auto;
+				z-index: 1000;
+			}
+			svg-menu:hover {
+				opacity: 1;
+			}
+			svg-menu > ul {
+				border-radius: 0.125rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			svg-menu > ul > li {
+				background-color: rgb(255, 255, 255);
+				border-radius: 0.25rem;
+				font-size: 0.5rem;
+				margin: 0;
+				padding: 0.5rem;
+			}
+
+			svg-menu > ul > li > span {
+				display: inline-block;
+				background-color: rgb(231, 231, 231);
+				color: rgb(165, 165, 165);
+				border-radius: 0.25rem;
+				font-size: 0.5rem;
+				margin: 0 0 0.25rem;
+				padding: 0.25rem;
+			}
+
+			svg-menu > ul > li > ul {
+				list-style: none;
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+				margin: 0;
+				padding: 0;
+
+				background-color: rgb(221 209 221);
+				border-radius: 0.25rem;
+				font-size: 1rem;
+				margin: 0;
+
+			}
+
+			svg-menu > ul > li > ul > li {
+				margin: 0;
+				padding: 0;
+			}
+
+			svg-menu > ul > li > ul > li > a {
+				background-color: rgb(99, 99, 99);
+				border-radius: 0.25rem;
+				color: #ffffff;
+				display: block;
+				padding: 0.5rem;
+				width: 20rem;
+				max-width: 50vw;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+			background-repeat-test {
+				background-image: var(--active-svg-url);
+				background-repeat: repeat;
+				background-size: 100px 100px;
+				display: block;
+				height: 100vh;
+				width: 100%;
+			}
+			background-center-test {
+				background-image: var(--active-svg-url);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 80%;
+				display: block;
+				height: 100vh;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<svg-menu></svg-menu>
+		<background-repeat-test></background-repeat-test>
+		<background-center-test></background-center-test>
+		<script src="./main.js"></script>
+	</body>
+</html>

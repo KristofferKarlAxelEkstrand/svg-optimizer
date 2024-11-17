@@ -42,8 +42,24 @@ npm install
 
 ## Basic usage
 
+The presets are based on two modes: clean and optimize. The clean presets are designed to make SVGs easier to read and edit by removing unnecessary elements. Some optimization is done initially, but further optimization should be performed later. Running SVGs through the clean mode can make them easier to edit and help minimize surprises when they are optimized later on.
+
 ```bash
-npm run default
+npm run clean:default
+```
+
+```bash
+npm run clean:leave-unknowns
+```
+
+_SVG optim usually removes unkown features but sometimes you want to keep experimental features in. This do not remove things it do not know what it is._
+
+### Preview in browser
+
+You can preview your changes in the browser, it can be very useful when doing changes to the input folder to see how they will act in the browser.
+
+```bash
+npm run dev
 ```
 
 ## System Requirements
