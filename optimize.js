@@ -6,9 +6,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const preset = process.env.PRESET || 'default';
+const presetPath = path.join(__dirname, 'presets', `${preset}.js`);
+
 const inputDir = path.join(__dirname, 'input');
 const outputDir = path.join(__dirname, 'output');
-const configName = 'default-two-dec';
 
 // Ensure the output directory exists
 try {
@@ -29,7 +31,7 @@ try {
 
 			// Optimize the SVG file using the configuration file
 			exec(
-				`npx svgo --config=svgo.${configName}.config.js ${inputFile} -o ${outputFile}`,
+				`npx svgo --config=${presetPath} ${inputFile} -o ${outputFile}`,
 				(err, stdout, stderr) => {
 					if (err) {
 						console.error(`Error optimizing ${file}:`, err);

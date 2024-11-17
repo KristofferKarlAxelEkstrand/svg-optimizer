@@ -8,7 +8,7 @@ export default {
 				overrides: {
 					removeViewBox: false,
 					removeMetadata: true,
-					removeUnknownsAndDefaults: false, // Disable removeUnknownsAndDefaults plugin
+					removeUnknownsAndDefaults: false,
 				},
 			},
 		},
@@ -44,6 +44,7 @@ export default {
 		'removeUselessStrokeAndFill',
 		'cleanupEnableBackground',
 		'removeHiddenElems',
+		'removeUnknownsAndDefaults',
 		'removeEmptyText',
 		'moveElemsAttrsToGroup',
 		'moveGroupAttrsToElems',

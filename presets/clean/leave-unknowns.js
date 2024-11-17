@@ -8,14 +8,14 @@ export default {
 				overrides: {
 					removeViewBox: false,
 					removeMetadata: true,
-					removeUnknownsAndDefaults: false, // Disable removeUnknownsAndDefaults plugin
+					removeUnknownsAndDefaults: false,
 				},
 			},
 		},
 		{
 			name: 'cleanupNumericValues',
 			params: {
-				floatPrecision: 2,
+				floatPrecision: 5,
 			},
 		},
 		{
@@ -44,6 +44,7 @@ export default {
 		'removeUselessStrokeAndFill',
 		'cleanupEnableBackground',
 		'removeHiddenElems',
+		'removeUnknownsAndDefaults',
 		'removeEmptyText',
 		'moveElemsAttrsToGroup',
 		'moveGroupAttrsToElems',
