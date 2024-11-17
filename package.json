@@ -1,0 +1,33 @@
+{
+	"name": "svg-optimizer",
+	"private": false,
+	"version": "0.0.1",
+	"type": "module",
+	"description": "Optimize SVGs locally.",
+	"main": "index.js",
+	"scripts": {
+		"optimize-svg": "node optimize-svgs.js",
+		"watch-svgs": "npm run optimize-svg && nodemon --watch input --ext svg --exec npm run optimize-svg"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/KristofferKarlAxelEkstrand/svg-optimizer.git"
+	},
+	"keywords": [
+		"SVG",
+		"optimize",
+		"minify",
+		"compress",
+		"local"
+	],
+	"author": "Kristoffer Ekstrand",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/KristofferKarlAxelEkstrand/svg-optimizer/issues"
+	},
+	"homepage": "https://github.com/KristofferKarlAxelEkstrand/svg-optimizer#readme",
+	"dependencies": {
+		"nodemon": "^3.1.7",
+		"svgo": "^3.3.2"
+	}
+}

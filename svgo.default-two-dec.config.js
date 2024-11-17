@@ -1,0 +1,67 @@
+// svgo.config.js
+export default {
+	multipass: true,
+	plugins: [
+		{
+			name: 'preset-default',
+			params: {
+				overrides: {
+					removeViewBox: false,
+					removeMetadata: true,
+					removeUnknownsAndDefaults: false, // Disable removeUnknownsAndDefaults plugin
+				},
+			},
+		},
+		{
+			name: 'cleanupNumericValues',
+			params: {
+				floatPrecision: 2,
+			},
+		},
+		{
+			name: 'inlineStyles',
+			params: {
+				onlyMatchedOnce: false,
+			},
+		},
+		'removeDoctype',
+		'removeXMLProcInst',
+		'removeComments',
+		'removeMetadata',
+		'removeEditorsNSData',
+		'cleanupAttrs',
+		'mergeStyles',
+		'inlineStyles',
+		'minifyStyles',
+		'convertStyleToAttrs',
+		'cleanupIds',
+		'removeRasterImages',
+		'removeUselessDefs',
+		'cleanupNumericValues',
+		'cleanupListOfValues',
+		'convertColors',
+		'removeNonInheritableGroupAttrs',
+		'removeUselessStrokeAndFill',
+		'cleanupEnableBackground',
+		'removeHiddenElems',
+		'removeEmptyText',
+		'moveElemsAttrsToGroup',
+		'moveGroupAttrsToElems',
+		'collapseGroups',
+		'convertPathData',
+		'convertEllipseToCircle',
+		'convertTransform',
+		'removeEmptyAttrs',
+		'removeEmptyContainers',
+		'mergePaths',
+		'removeUnusedNS',
+		'reusePaths',
+		'sortAttrs',
+		'sortDefsChildren',
+		'removeTitle',
+		'removeDesc',
+		'removeDimensions',
+		'removeStyleElement',
+		'removeScriptElement',
+	],
+};
