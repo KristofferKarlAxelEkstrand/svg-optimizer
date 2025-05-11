@@ -6,16 +6,16 @@
 	"description": "Optimize SVGs locally.",
 	"main": "index.js",
 	"scripts": {
-		"dev": "npm-run-all --parallel dev:monitor dev:server",
-		"dev:monitor": "node monitor.js",
-		"dev:server": "npm run dev --prefix browser-test",
-		"svgo:optimize": "node optimize.js",
-		"svgo:watch": "rimraf output && npm run svgo:optimize && nodemon --watch input --ext svg --exec npm run svgo:optimize",
 		"clean:default": "cross-env PRESET=clean/default npm run svgo:watch",
 		"clean:leave-unknowns": "cross-env PRESET=clean/leave-unknowns npm run svgo:watch",
 		"optimize:default": "cross-env PRESET=optimize/default npm run svgo:watch",
 		"optimize:leave-unknowns": "cross-env PRESET=optimize/leave-unknowns npm run svgo:watch",
-		"remove:output": "rimraf output"
+		"dev": "npm-run-all --parallel dev:monitor dev:server",
+		"dev:monitor": "node monitor.js",
+		"dev:server": "npm run dev --prefix server-preview",
+		"remove:output": "rimraf output",
+		"svgo:optimize": "node optimize.js",
+		"svgo:watch": "npm run svgo:optimize && nodemon --watch input --ext svg --exec npm run svgo:optimize"
 	},
 	"repository": {
 		"type": "git",
