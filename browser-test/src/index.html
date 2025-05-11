@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Optimizer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Welcome to SVG Optimizer</h1>
-    <div id="app"></div>
-    <script type="module" src="./main.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SVG Optimizer</title>
+        <style>
+            *,
+            *::after,
+            *::before {
+                box-sizing: border-box;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                color: #333;
+                padding: 0;
+                margin: 0;
+            }
+            svg-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: block;
+                margin: 0;
+                width: auto;
+                height: 100%;
+                background-color: #fff;
+                border-radius: 0;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: 1000;
+                overflow: auto;
+
+            }
+            svg-menu:hover {
+                opacity: 1;
+            }
+            svg-menu > a {
+                display: block;
+                padding: 2rem;
+                text-decoration: none;
+                color: rgb(80, 80, 80);
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            div#background-repeat-test {
+                width: 100%;
+                height: 100vh;
+                background-image: url("./assets/gradient.svg");
+                background-repeat: repeat;
+                background-size: 100px 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <svg-menu></svg-menu>
+        <div id="background-repeat-test"></div>
+        <script src="./main.js"></script>
+    </body>
 </html>
