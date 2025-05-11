@@ -2,20 +2,38 @@ class svgMenu extends HTMLElement {
 	constructor() {
 		super();
 		this.files = null;
+		this.activeSvgUrl = null;
+		this.updateInterval = 1000;
 	}
 
 	connectedCallback() {
 		this.initialize();
+
+		this.activeSvgUrl = localStorage.getItem('activeSvgUrl');
+		if (this.activeSvgUrl) {
+			this.setActiveSvgUrl(this.activeSvgUrl);
+		}
 
 		this.addEventListener('click', (event) => {
 			event.preventDefault();
 			if (event.target.tagName === 'A') {
 				if (event.target.getAttribute('href').endsWith('.svg')) {
 					const href = event.target.getAttribute('href');
-					document.documentElement.style.setProperty('--selected-link', `url(/assets/${href})`);
+					this.setActiveSvgUrl(href);
 				}
 			}
 		});
+
+		setInterval(() => {
+			this.setActiveSvgUrl(this.activeSvgUrl);
+		}, this.updateInterval);
+	}
+
+	setActiveSvgUrl(url) {
+		const randomNumber = Math.floor(Math.random() * 100000);
+		document.documentElement.style.setProperty('--active-svg-url', `url(/assets/${url}?${randomNumber})`);
+		localStorage.setItem('activeSvgUrl', url);
+		this.activeSvgUrl = url;
 	}
 
 	async initialize() {

@@ -48,15 +48,25 @@
                 display: block;
                 width: 100%;
                 height: 100vh;
-                background-image: var(--selected-link);
+                background-image: var(--active-svg-url);
                 background-repeat: repeat;
                 background-size: 100px 100px;
+            }
+            background-center-test {
+                display: block;
+                width: 100%;
+                height: 100vh;
+                background-image: var(--active-svg-url);
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position: center;
             }
         </style>
     </head>
     <body>
         <svg-menu></svg-menu>
         <background-repeat-test></background-repeat-test>
+        <background-center-test></background-center-test>
         <script src="./main.js"></script>
     </body>
 </html>
