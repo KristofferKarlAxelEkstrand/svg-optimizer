@@ -12,7 +12,8 @@
 		"clean:default": "cross-env PRESET=clean/default npm run svgo:watch",
 		"clean:leave-unknowns": "cross-env PRESET=clean/leave-unknowns npm run svgo:watch",
 		"optimize:default": "cross-env PRESET=optimize/default npm run svgo:watch",
-		"optimize:leave-unknowns": "cross-env PRESET=optimize/leave-unknowns npm run svgo:watch"
+		"optimize:leave-unknowns": "cross-env PRESET=optimize/leave-unknowns npm run svgo:watch",
+		"remove:output": "rimraf output"
 	},
 	"repository": {
 		"type": "git",

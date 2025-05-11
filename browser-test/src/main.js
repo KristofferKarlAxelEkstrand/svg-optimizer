@@ -1,11 +1,21 @@
 class svgMenu extends HTMLElement {
 	constructor() {
 		super();
-		this.files = null; // Initialize files to null
+		this.files = null;
 	}
 
 	connectedCallback() {
 		this.initialize();
+
+		this.addEventListener('click', (event) => {
+			event.preventDefault();
+			if (event.target.tagName === 'A') {
+				if (event.target.getAttribute('href').endsWith('.svg')) {
+					const href = event.target.getAttribute('href');
+					document.documentElement.style.setProperty('--selected-link', `url(/assets/${href})`);
+				}
+			}
+		});
 	}
 
 	async initialize() {
