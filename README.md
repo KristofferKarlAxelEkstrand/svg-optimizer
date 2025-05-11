@@ -50,4 +50,4 @@ npm run clean:default
 
 ## System Requirements
 
-- [Node.js](https://nodejs.org/) 14 or later (NPM is installed together)
+-   [Node.js](https://nodejs.org/) 14 or later (NPM is installed together)
