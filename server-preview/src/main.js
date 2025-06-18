@@ -57,7 +57,10 @@ class svgMenu extends HTMLElement {
 				menu += `<li><span>${folder}</span><ul>`;
 			}
 			grouped[folder].forEach((urlPath) => {
-				menu += `<li><a href="${urlPath}">${urlPath}</a></li>`;
+				const displayName = urlPath.includes('/')
+					? urlPath.substring(urlPath.indexOf('/') + 1)
+					: urlPath;
+				menu += `<li><a href="${urlPath}">${displayName}</a></li>`;
 			});
 			if (folder) {
 				menu += `</ul></li>`;

@@ -14,6 +14,7 @@
 		"dev:monitor": "node monitor.js",
 		"dev:server": "npm run dev --prefix server-preview",
 		"remove:output": "rimraf output",
+		"remove:assets": "rimraf server-preview/src/assets",
 		"svgo:optimize": "node optimize.js",
 		"svgo:watch": "npm run svgo:optimize && nodemon --watch input --ext svg --exec npm run svgo:optimize",
 		"format": "npx stylelint \"**/*.{css,html}\" --fix && npx prettier --write ."
