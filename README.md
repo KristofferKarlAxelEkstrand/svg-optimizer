@@ -58,10 +58,6 @@ _SVG optim usually removes unkown features but sometimes you want to keep experi
 
 You can preview your changes in the browser, it can be very useful when doing changes to the input folder to see how they will act in the browser.
 
-```bash
-npm run dev
-```
-
 ## System Requirements
 
 - [Node.js](https://nodejs.org/) 14 or later (NPM is installed together)
