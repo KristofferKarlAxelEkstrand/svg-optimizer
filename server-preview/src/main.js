@@ -87,3 +87,39 @@ class svgMenu extends HTMLElement {
 }
 
 customElements.define('svg-menu', svgMenu);
+
+class colorPicker extends HTMLElement {
+	constructor() {
+		super();
+		this.input = Object.assign(document.createElement('input'), {
+			type: 'color',
+			value: '#000000',
+		});
+		this.htmlRoot = document.documentElement;
+		this.svgBackgroundColor = localStorage.getItem('svgBackgroundColor');
+	}
+
+	connectedCallback() {
+		this.render();
+
+		if (this.svgBackgroundColor) {
+			this.input.value = this.svgBackgroundColor;
+			this.updateRootColor(this.svgBackgroundColor);
+		}
+
+		this.input.addEventListener('input', (e) => {
+			this.updateRootColor(e.target.value);
+		});
+	}
+
+	updateRootColor(color) {
+		this.htmlRoot.style.setProperty('--svg-background-color', color);
+		localStorage.setItem('svgBackgroundColor', color);
+	}
+
+	render() {
+		this.replaceChildren(this.input);
+	}
+}
+
+customElements.define('color-picker', colorPicker);

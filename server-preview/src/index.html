@@ -10,6 +10,11 @@
 			*::before {
 				box-sizing: border-box;
 			}
+
+			:root {
+				--svg-background-color: rgb(231, 18, 185);
+			}
+
 			body {
 				background-color: #f0f0f0;
 				color: #333;
@@ -96,6 +101,7 @@
 			}
 
 			background-repeat-test {
+				background-color: var(--svg-background-color);
 				background-image: var(--active-svg-url);
 				background-repeat: repeat;
 				background-size: 100px 100px;
@@ -104,6 +110,7 @@
 				width: 100%;
 			}
 			background-center-test {
+				background-color: var(--svg-background-color);
 				background-image: var(--active-svg-url);
 				background-position: center;
 				background-repeat: no-repeat;
@@ -112,10 +119,36 @@
 				height: 100vh;
 				width: 100%;
 			}
+			color-picker {
+				position: fixed;
+				top: 0;
+				right: 0;
+				background-color: #fff;
+				height: 100%;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				padding: 0.5rem;
+			}
+			color-picker:hover {
+				opacity: 1;
+			}
+
+			color-picker > input[type="color"] {
+				width: 5rem;
+				height: 5rem;
+				border: none;
+				padding: 0;
+				background: none;
+				box-shadow: none;
+				display: block;
+
+				cursor: pointer;
+			}
 		</style>
 	</head>
 	<body>
 		<svg-menu></svg-menu>
+		<color-picker></color-picker>
 		<background-repeat-test></background-repeat-test>
 		<background-center-test></background-center-test>
 		<script src="./main.js"></script>
