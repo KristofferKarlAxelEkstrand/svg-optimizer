@@ -17,7 +17,8 @@
 		"remove:assets": "rimraf server-preview/src/assets",
 		"svgo:optimize": "node optimize.js",
 		"svgo:watch": "npm run svgo:optimize && nodemon --watch input --ext svg --exec npm run svgo:optimize",
-		"format": "npx stylelint \"**/*.{css,html}\" --fix && npx prettier --write ."
+		"format": "npx stylelint \"**/*.{css,html}\" --fix && npx prettier --write .",
+		"fix": "npx npm-check-updates -u && npm install && npm audit fix --force && npm prune && npm install && npm update"
 	},
 	"repository": {
 		"type": "git",
@@ -39,15 +40,15 @@
 	},
 	"homepage": "https://github.com/KristofferKarlAxelEkstrand/svg-optimizer#readme",
 	"devDependencies": {
-		"cross-env": "^7.0.3",
+		"cross-env": "^10.0.0",
 		"nodemon": "^3.1.10",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^3.5.3",
+		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
-		"stylelint": "^16.20.0",
+		"stylelint": "^16.22.0",
 		"stylelint-config-html": "^1.1.0",
 		"stylelint-config-standard": "^38.0.0",
 		"stylelint-order": "^7.0.0",
-		"svgo": "^3.3.2"
+		"svgo": "^4.0.0"
 	}
 }
